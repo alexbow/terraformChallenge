@@ -71,7 +71,7 @@ resource "aws_route_table_association" "public" {
 }
 
 resource "aws_instance" "nginx" {
-  ami             = "ami-0c55b159cbfafe1f0"  # AMI for the EC2 instance
+  ami             = "ami-0aa2b7722dc1b5612"  # AMI for the EC2 instance
   instance_type   = "t2.micro"
   subnet_id       = aws_subnet.public[0].id  # Placing the instance in the first public subnet
   security_groups = [aws_security_group.allow_http.id]
