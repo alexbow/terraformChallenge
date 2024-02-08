@@ -27,3 +27,7 @@ variable "private_subnet_cidr_blocks" {
   description = "CIDR blocks for private subnets"
   default     = ["10.0.11.0/24", "10.0.12.0/24", "10.0.13.0/24"]
 }
+
+resource "aws_vpc" "main" {
+  cidr_block = var.vpc_cidr_block
+}
