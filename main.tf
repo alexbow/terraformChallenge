@@ -64,4 +64,10 @@ resource "aws_route_table" "public" {
   }
 }
 
+resource "aws_route_table_association" "public" {
+  count          = length(var.public_subnet_cidr_blocks)
+  subnet_id      = aws_subnet.public[count.index].id
+  route_table_id = aws_route_table.public.id
+}
+
 data "aws_availability_zones" "available" {} 
