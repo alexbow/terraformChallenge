@@ -46,3 +46,5 @@ resource "aws_subnet" "private" {
   cidr_block             = var.private_subnet_cidr_blocks[count.index]
   availability_zone      = element(data.aws_availability_zones.available.names, count.index)
 }
+
+data "aws_availability_zones" "available" {}
