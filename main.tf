@@ -47,4 +47,8 @@ resource "aws_subnet" "private" {
   availability_zone      = element(data.aws_availability_zones.available.names, count.index)
 }
 
-data "aws_availability_zones" "available" {}
+resource "aws_internet_gateway" "gw" {
+  vpc_id = aws_vpc.main.id
+}
+
+data "aws_availability_zones" "available" {} 
